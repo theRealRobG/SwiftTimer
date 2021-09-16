@@ -25,17 +25,17 @@ struct SwiftTimer: ParsableCommand {
     var countUntil: Time?
 
     mutating func run() throws {
-        let timeFormat = timeFormat
-        let direction = countDirection
+        let timeFormat = self.timeFormat
+        let direction = self.countDirection
         let limit: Int
-        var count = startFrom.totalSeconds
+        var count = self.startFrom.totalSeconds
         switch direction {
         case .down:
-            limit = countUntil.map { Int($0.totalSeconds) } ?? 0
+            limit = self.countUntil.map { Int($0.totalSeconds) } ?? 0
             guard limit <= count else { throw SwiftTimerError.limitGreaterThanStartWithDownCount(limit: limit, start: count) }
             guard limit != count else { finishRunning() }
         case .up:
-            limit = countUntil.map { Int($0.totalSeconds) } ?? .max
+            limit = self.countUntil.map { Int($0.totalSeconds) } ?? .max
             guard count <= limit else { throw SwiftTimerError.limitLessThanStartWithUpCount(limit: limit, start: count) }
             guard count != limit else { finishRunning() }
         }
