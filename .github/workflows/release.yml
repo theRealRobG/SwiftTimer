@@ -26,12 +26,14 @@ jobs:
         prerelease: false
     - name: Build
       run: swift build -c release
+    - name: Zip
+      run: zip -j swift-timer.zip .build/release/swift-timer
     - name: Upload Binary
       uses: actions/upload-release-asset@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: .build/release/swift-timer
-        asset_name: swift-timer
-        asset_content_type: application/x-mach-binary
+        asset_path: swift-timer.zip
+        asset_name: swift-timer.zip
+        asset_content_type: application/zip
