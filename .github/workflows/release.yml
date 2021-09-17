@@ -7,8 +7,7 @@ on:
 jobs:
   release:
     name: Create Draft Release
-    runs-on: ubuntu-latest
-    container: swift:latest
+    runs-on: macos-latest
     steps:
     - uses: actions/checkout@v2
     - name: Create Date Tag
