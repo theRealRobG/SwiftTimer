@@ -6,7 +6,7 @@ This is a simple command-line timer. There are 2 reasons why I wrote this:
 ## Releases
 Release assets are available on the [releases](https://github.com/theRealRobG/SwiftTimer/releases) page. The executable is contained within a zip file uploaded to each release. To run on macOS you will need to follow [these instructions](https://support.apple.com/en-gb/guide/mac-help/mh40616/mac) to open a Mac app from an unidentified developer.
 
-Download the latest release executable [here](https://github.com/theRealRobG/SwiftTimer/releases/download/swift-timer.zip)
+Download the latest release executable [here](https://github.com/theRealRobG/SwiftTimer/releases/latest/download/swift-timer.zip)
 
 ## Building
 There are 2 ways of using the executable:
