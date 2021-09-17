@@ -26,12 +26,10 @@ jobs:
         prerelease: false
     - name: Build
       run: swift build -c release
-    - name: Update
-      run: apt-get update
-    - name: Get Zip
-      run: apt-get install zip
     - name: Zip
-      run: zip -j swift-timer.zip .build/release/swift-timer
+      uses: montudor/action-zip@v1
+      with:
+        args: zip -j swift-timer.zip .build/release/swift-timer
     - name: Upload Binary
       uses: actions/upload-release-asset@v1
       env:
