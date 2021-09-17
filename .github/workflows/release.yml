@@ -10,6 +10,12 @@ jobs:
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@v2
+    - name: Build
+      run: swift build -c release
+    - name: Zip
+      uses: montudor/action-zip@v1
+      with:
+        args: zip -j swift-timer.zip .build/release/swift-timer
     - name: Create Date Tag
       id: create_date_tag
       run: echo "::set-output name=date_tag::$(date -u +"%Y-%m-%dT%H:%M:%SZ")"
@@ -23,12 +29,6 @@ jobs:
         release_name: "Draft ${{ steps.create_date_tag.outputs.date_tag }}"
         draft: true
         prerelease: false
-    - name: Build
-      run: swift build -c release
-    - name: Zip
-      uses: montudor/action-zip@v1
-      with:
-        args: zip -j swift-timer.zip .build/release/swift-timer
     - name: Upload Binary
       uses: actions/upload-release-asset@v1
       env:
