@@ -26,8 +26,8 @@ jobs:
         prerelease: false
     - name: Build
       run: swift build -c release
-    - name: Get zip
-      run: apt-get install zip
+    - name: Get Zip
+      run: sudo apt-get install zip
     - name: Zip
       run: zip -j swift-timer.zip .build/release/swift-timer
     - name: Upload Binary
