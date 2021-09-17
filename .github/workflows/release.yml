@@ -13,9 +13,7 @@ jobs:
     - name: Build
       run: swift build -c release
     - name: Zip
-      uses: montudor/action-zip@v1
-      with:
-        args: zip -j swift-timer.zip .build/release/swift-timer
+      run: zip -j swift-timer.zip .build/release/swift-timer
     - name: Create Date Tag
       id: create_date_tag
       run: echo "::set-output name=date_tag::$(date -u +"%Y-%m-%dT%H:%M:%SZ")"
